@@ -1,0 +1,11 @@
+{
+    "name": "mail-server",
+    "version" : "0.0.1",
+    "description": "throwaway mail server",
+    "dependencies": {
+        "lorem-ipsum": ">=1.0.1",
+        "node-uuid" : ">=1.4.1",
+        "underscore" : ">=1.6.0"
+    }
+
+}
