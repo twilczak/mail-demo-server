@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var loremIpsum = require('lorem-ipsum');
 var uuid = require('node-uuid');
@@ -6,7 +6,7 @@ var _ = require('underscore');
 
 function Mailbox(){
     this.messages = [];
-};
+}
 
 Mailbox.prototype.createMessage = function(sender, recipient, date, subject, body){
     var message = {
@@ -23,6 +23,10 @@ Mailbox.prototype.createMessage = function(sender, recipient, date, subject, bod
 Mailbox.prototype.deleteMessage = function(id){
     var message = _.findWhere(this.messages, {id: id});
     this.messages = _.without(this.messages, message);
-}
+};
+
+Mailbox.prototype.findMessage = function(id) {
+    var message = _.findWhere(this.messages, {id: id});
+};
 
 exports.Mailbox = Mailbox;

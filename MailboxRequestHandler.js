@@ -1,11 +1,11 @@
-'use strict'
+'use strict';
 
 var url = require('url');
 var Mailbox = require('./Mailbox').Mailbox;
 
 function MailboxRequestHandler() {
     this.mailbox = new Mailbox();
-};
+}
 
 MailboxRequestHandler.prototype.OPTIONS = function(request, response){
     response.writeHead(200);
@@ -35,9 +35,10 @@ MailboxRequestHandler.prototype.DELETE = function(request, response) {
     var parsedUrl = url.parse(request.url);
     var id = parsedUrl.pathname.substring(parsedUrl.pathname.lastIndexOf('/')+1);
 
+    console.log('deleting message: ' + id);
     this.mailbox.deleteMessage(id);
 
-    response.writeHead(204);
+    response.writeHead(200, {'content-type': 'application/json'});
     response.end();
 };
 

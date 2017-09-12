@@ -34,8 +34,8 @@ var server = http.createServer(function(request, response){
     var pathEnd = parsedUrl.pathname.lastIndexOf('/') !== 0 ? parsedUrl.pathname.lastIndexOf('/') : parsedUrl.pathname.length;
     var path = parsedUrl.pathname.substring(1, pathEnd);
 
-    console.log('handling request for ' + path);
-    
+    console.log('handling request for ' + path + ' ' + request.method);
+
     setCorsHeaders(response);
     var messageHandler = messageHandlers[path];
     if(messageHandler){
